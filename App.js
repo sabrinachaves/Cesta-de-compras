@@ -6,6 +6,8 @@ import {
   Montserrat_400Regular,
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
+import AppLoading from "expo-app-loading";
+import mock from "./src/mocks/cesta";
 
 export default function App() {
   const [fonteCarregada] = useFonts({
@@ -14,13 +16,13 @@ export default function App() {
   });
 
   if(!fonteCarregada){
-    return <View />
+    return <AppLoading />
   }
 
   return (
     <SafeAreaView>
       <StatusBar />
-      <Cesta />
+      <Cesta {...mock} />
     </SafeAreaView>
   );
 }
